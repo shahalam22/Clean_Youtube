@@ -2,14 +2,27 @@ import * as React from 'react';
 import PlaylistCardItem from '../playlist-card-item/index';
 import { Container, Grid} from '@mui/material';
 import { useStoreState } from 'easy-peasy';
+import { useState } from 'react';
+import { useEffect } from 'react';
 
 const HomePage = () => {
     const playlists = useStoreState((state) => state.playlist.data);
     const playlistArray = Object.values(playlists)
     const favorites = useStoreState((state) => state.favorite.items);
-    const favoritesArray = playlistArray.filter((item) => favorites.includes(item.playlistId));
     const recents = useStoreState((state) => state.recent.items);
-    const recentsArray = playlistArray.filter((item) => recents.includes(item.playlistId));
+    
+    const [favoritesArray, useFavoritesArray] = useState([]);
+    const [recentsArray, setRecentsArray] = useState([]);
+
+    useEffect(() => {
+        const temp = playlistArray.filter((item) => favorites.includes(item.playlistId));
+        useFavoritesArray(temp);
+    }, [favorites, playlists])
+
+    useEffect(() => {
+        const temp = playlistArray.filter((item) => recents.includes(item.playlistId));
+        setRecentsArray(temp);
+    }, [recents, playlists])
 
     return (
         <div style={{color: 'white', backgroundColor:'#333333'}}>

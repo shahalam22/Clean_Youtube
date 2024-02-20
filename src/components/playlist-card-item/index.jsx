@@ -22,6 +22,14 @@ const PlaylistCardItem = ({playlistThumbnail, playlistTitle, channelTitle, playl
     recentActions.deletePlaylist(playlistId);
     favoriteActions.removeFromFavorites(playlistId);
   }
+
+  const handleAddfavorite = () => {
+    if(!favorites.includes(playlistId)){
+      favoriteActions.addToFavorites(playlistId);
+    }else{
+      favoriteActions.removeFromFavorites(playlistId);
+    }
+  }
 //
 
   return (
@@ -49,7 +57,7 @@ const PlaylistCardItem = ({playlistThumbnail, playlistTitle, channelTitle, playl
                 </Typography>
             </Stack>
         </Button>
-        <Button sx={{color:'black'}} onClick={() => favoriteActions.addToFavorites(playlistId)}>
+        <Button sx={{color:'black'}} onClick={handleAddfavorite}>
           {favorites.includes(playlistId) ? <Favorite color='error'/> : <FavoriteBorder/>}
         </Button>
         <Button sx={{color:'black'}} onClick={handleDelete}>

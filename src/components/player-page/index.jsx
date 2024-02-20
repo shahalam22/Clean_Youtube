@@ -12,7 +12,7 @@ const PlayerPage = ({playlists}) => {
     const notes = useStoreState((state) => state.notes.items);
     const { playlistId, videoId } = useParams();
     const current = playlists[playlistId];
-    const [state, setState] = useState(notes[videoId] || '');
+    const [state, setState] = useState(notes[videoId] || 'Write here...');
 
     if(!current) return (<NotFound />);
 
@@ -42,40 +42,42 @@ const PlayerPage = ({playlists}) => {
 //
 
     return (
-        <Container maxWidth={'lg'} sx={{py: 10, backgroundColor:'#333333', color:'white'}}>
-            <Container maxWidth={'lg'} sx={{alignContent: 'center'}}>
-                {/* <YouTube videoId={videoId} opts={{height: '380px', width: '100%'}}/> */}
-                <iframe width={'100%'} height={'400px'} style={{border: '0px'}} loading='lazy' src={`https://www.youtube.com/embed/${videoId}`}></iframe>
-                <Stack direction={'row'} justifyContent={'space-between'}>
-                    <Button variant='contained' color='error' to={`/player/${playlistId}/${prevVideoId}`} component={Link}>Previous</Button>
-                    <Button variant='contained' color='error' to={`/player/${playlistId}/${nextVideoId}`} component={Link}>Next</Button>
-                </Stack>
-            </Container>
-            <Container spacing={2} sx={{my: 5}}>
-                <Stack spacing={2} maxWidth={'100%'} justifyContent={'center'}>
-                    <h2>Make Note</h2>
-                    <TextField id="note" fullWidth multiline rows={6} defaultValue={state} inputProps={{style: {color: 'white'}}} onChange={handleChange}/>
-                    <Button variant='contained' color='error' onClick={() => handleSave()}>Save</Button>
-                </Stack>
-                <Container>
-                    <Typography variant='h5' align='center' sx={{marginTop: '5%', marginBottom: '3%'}}>
-                        <b>Videos</b>
-                    </Typography>
-                    <List sx={{maxHeight: '400px', maxWidth:'100%', overflow: 'auto'}}>
-                        {current?.playListItems.map((item) => (
-                            <ListItem key={item.contentDetails.videoId}>
-                                <ListItemButton to={`/player/${playlistId}/${item.contentDetails.videoId}`}>
-                                    <ListItemAvatar>
-                                        <Avatar src={item.thumbnail.url}/>
-                                    </ListItemAvatar>
-                                    <ListItemText primary={`Line item ${item.title}`}/>
-                                </ListItemButton>
-                            </ListItem>
-                        ))}
-                    </List>
+        <div style={{color: 'white', backgroundColor:'#333333'}}>
+            <Container maxWidth={'lg'} sx={{py: 10}}>
+                <Container maxWidth={'lg'} sx={{alignContent: 'center'}}>
+                    {/* <YouTube videoId={videoId} opts={{height: '380px', width: '100%'}}/> */}
+                    <iframe width={'100%'} height={'400px'} style={{border: '0px'}} loading='lazy' src={`https://www.youtube.com/embed/${videoId}`}></iframe>
+                    <Stack direction={'row'} justifyContent={'space-between'}>
+                        <Button variant='contained' color='error' to={`/player/${playlistId}/${prevVideoId}`} component={Link}>Previous</Button>
+                        <Button variant='contained' color='error' to={`/player/${playlistId}/${nextVideoId}`} component={Link}>Next</Button>
+                    </Stack>
+                </Container>
+                <Container spacing={2} sx={{my: 5}}>
+                    <Stack spacing={2} maxWidth={'100%'} justifyContent={'center'}>
+                        <h2>Make Note</h2>
+                        <TextField id="note" fullWidth multiline rows={6} defaultValue={state} inputProps={{style: {color: 'white'}}} onChange={handleChange}/>
+                        <Button variant='contained' color='error' onClick={() => handleSave()}>Save</Button>
+                    </Stack>
+                    <Container>
+                        <Typography variant='h5' align='center' sx={{marginTop: '5%', marginBottom: '3%'}}>
+                            <b>Videos</b>
+                        </Typography>
+                        <List sx={{maxHeight: '400px', maxWidth:'100%', overflow: 'auto'}}>
+                            {current?.playListItems.map((item) => (
+                                <ListItem key={item.contentDetails.videoId}>
+                                    <ListItemButton to={`/player/${playlistId}/${item.contentDetails.videoId}`}>
+                                        <ListItemAvatar>
+                                            <Avatar src={item.thumbnail.url}/>
+                                        </ListItemAvatar>
+                                        <ListItemText primary={`Line item ${item.title}`}/>
+                                    </ListItemButton>
+                                </ListItem>
+                            ))}
+                        </List>
+                    </Container>
                 </Container>
             </Container>
-        </Container>
+        </div>
     )
 }
 
