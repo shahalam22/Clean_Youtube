@@ -15,7 +15,7 @@ const PlaylistForm = ({open, handleClose}) => {
     const recentActions = useStoreActions((actions) => actions.recent);
 
 // handler function
-    const handleSubmit = (e) => {
+    const handleSubmit = () => {
         if(!state){
             alert('Invalid State');
         } else {
