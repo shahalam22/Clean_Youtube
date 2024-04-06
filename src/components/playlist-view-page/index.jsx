@@ -9,7 +9,7 @@ const PlaylistViewPage = ({playlists}) => {
     const { playlistId } = useParams();
     const current = playlists[playlistId];
 
-    // console.log(current);
+    console.log(current);
     // current?.playListItems.map((item) => {
     //     console.log(item.thumbnail.url);
     // });

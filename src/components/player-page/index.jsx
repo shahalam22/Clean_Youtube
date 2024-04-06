@@ -46,7 +46,15 @@ const PlayerPage = ({playlists}) => {
             <Container maxWidth={'lg'} sx={{py: 10}}>
                 <Container maxWidth={'lg'} sx={{alignContent: 'center'}}>
                     {/* <YouTube videoId={videoId} opts={{height: '380px', width: '100%'}}/> */}
-                    <iframe width={'100%'} height={'400px'} style={{border: '0px'}} src={`https://www.youtube.com/embed/${videoId}`}></iframe>
+                    <iframe width={'100%'} height={'400px'} style={{border: '0px'}} src={`https://www.youtube.com/embed/${videoId}`} referrerPolicy='strict-origin-when-cross-origin'></iframe>
+                    {/* <iframe
+                      width="560"
+                      height="315"
+                      src={`https://www.youtube.com/embed/${videoId}`}
+                      title="YouTube video player"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowFullScreen
+                    ></iframe> */}
                     <Stack direction={'row'} justifyContent={'space-between'}>
                         <Button variant='contained' color='error' to={`/player/${playlistId}/${prevVideoId}`} component={Link}>Previous</Button>
                         <Button variant='contained' color='error' to={`/player/${playlistId}/${nextVideoId}`} component={Link}>Next</Button>
