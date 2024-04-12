@@ -4,6 +4,7 @@ import App from './App.jsx'
 import store from './store'
 import {StoreProvider} from 'easy-peasy'
 
+
 ReactDOM.createRoot(document.getElementById('root')).render(
     <StoreProvider store={store}>
         <App />

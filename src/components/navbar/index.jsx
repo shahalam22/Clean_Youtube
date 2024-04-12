@@ -6,21 +6,22 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
 import { Button, Container, Link } from '@mui/material';
-import { useState } from 'react';
-import PlaylistForm from '../playlist-form/index';
+// import { useState } from 'react';
+// import PlaylistForm from '../playlist-form/index';
+// import Logo from '../../../public/Black_BG.png';
 
 
 const Navbar = () => {
 
-  const [open, setOpen] = useState(false);
+  // const [open, setOpen] = useState(false);
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
+  // const handleClickOpen = () => {
+  //   setOpen(true);
+  // };
 
-  const handleClose = () => {
-    setOpen(false);
-  };
+  // const handleClose = () => {
+  //   setOpen(false);
+  // };
 
   // const getPlaylistId = (id) => {
   //   getPlaylistById(id);
@@ -33,18 +34,21 @@ const Navbar = () => {
           <Toolbar>
             <Stack sx={{flexGrow: 1}}>
               <Link to='/' component={RouterLink} sx={{textDecoration:'none'}}>
-                <Typography variant="h4" color={'white'}>
+                {/* <Typography variant="h4" color={'white'}>
                   <b>CleanTube</b>
                 </Typography>
               </Link>
               <Link to='/' component={RouterLink} sx={{textDecoration:'none'}}>
                 <Typography variant="body1" color={'white'}>
                   Boost your Concentration
-                </Typography>
+                </Typography> */}
+                <img src='../../../public/Black_BG.png' width={'150px'}></img>
               </Link>
             </Stack>
-            <Button variant='contained' color='error' onClick={handleClickOpen}>Add Playlist</Button>
-            <PlaylistForm open={open} handleClose={handleClose}/>
+            {/* <Button variant='contained' style={{backgroundColor: '#ff0000'}} onClick={handleClickOpen}>Add Playlist</Button> */}
+            <Button variant='contained' style={{backgroundColor: '#ff0000', marginRight: '15px'}}>Login</Button>
+            <Button variant='contained' style={{backgroundColor: '#ff0000'}}>Sign Up</Button>
+            {/* <PlaylistForm open={open} handleClose={handleClose}/> */}
           </Toolbar>
         </Container>
       </AppBar>

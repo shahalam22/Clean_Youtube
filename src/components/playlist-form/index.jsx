@@ -7,12 +7,14 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { useState } from 'react';
-import {useStoreActions} from 'easy-peasy'
+import { useStoreActions } from 'easy-peasy'
+import { useNavigate } from 'react-router-dom';
 
 const PlaylistForm = ({open, handleClose}) => {
     const [state, setState] = useState('');
     const playlistActions = useStoreActions((actions) => actions.playlist);
     const recentActions = useStoreActions((actions) => actions.recent);
+    const navigate = useNavigate();
 
 // handler function
     const handleSubmit = () => {
@@ -26,6 +28,7 @@ const PlaylistForm = ({open, handleClose}) => {
               playlistActions.getPlaylist(state);
               recentActions.addToRecent(state);
             }
+            navigate('/home');
             setState('');
             handleClose();
         }

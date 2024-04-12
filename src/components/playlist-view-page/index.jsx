@@ -48,7 +48,7 @@ const PlaylistViewPage = ({playlists}) => {
                                     {desc}
                                 </Typography>
                                 {btnDefault && (
-                                    viewMore ? <Button variant='contained' color='error' size='small' sx={{marginTop: '10px'}} onClick={handleViewMore}>View More</Button> : <Button variant='contained' color='error' size='small' sx={{marginTop: '10px'}} onClick={handleViewMore}>View less</Button>
+                                    viewMore ? <Button variant='contained' style={{backgroundColor: '#ff0000'}} size='small' sx={{marginTop: '10px'}} onClick={handleViewMore}>View More</Button> : <Button variant='contained' color='error' size='small' sx={{marginTop: '10px'}} onClick={handleViewMore}>View less</Button>
                                 )}
                             </CardContent>
                         </Card>
@@ -58,7 +58,7 @@ const PlaylistViewPage = ({playlists}) => {
                             <Typography variant='h5' align='center'>
                                 <b>Videos</b>
                             </Typography>
-                            <Button variant='contained' color='error' to={`/player/${playlistId}/${current?.playListItems[0].contentDetails.videoId}`} component={Link}>
+                            <Button variant='contained' style={{backgroundColor: '#ff0000'}} to={`/player/${playlistId}/${current?.playListItems[0].contentDetails.videoId}`} component={Link}>
                                 Play Videos
                             </Button>
                         </Stack>

@@ -16,9 +16,12 @@
     "@mui/material": "^5.15.5",
     "@mui/styled-engine": "^5.15.6",
     "axios": "^1.6.5",
+    "draft-js": "^0.11.7",
     "easy-peasy": "^6.0.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-draggable": "^4.4.6",
+    "react-quill": "^2.0.0",
     "react-router-dom": "^6.21.3",
     "react-youtube": "^10.1.0",
     "styled-components": "^6.1.8"

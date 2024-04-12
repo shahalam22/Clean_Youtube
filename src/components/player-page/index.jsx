@@ -1,18 +1,18 @@
 import * as React from 'react';
-import YouTube from 'react-youtube';
 import { Container, Stack, List, ListItem, ListItemButton, ListItemAvatar, Avatar, ListItemText, Button, TextField} from '@mui/material';
 import { useParams } from 'react-router-dom';
 import { Typography } from '@mui/material';
-import { useStoreActions, useStoreState } from 'easy-peasy';
 import { Link } from 'react-router-dom';
+// import TextEditor from '../textEditor';
+import TextEditor from '../textBox';
 import { useState } from 'react';
+import Draggable from 'react-draggable';
 
 const PlayerPage = ({playlists}) => {
-    const notesAction = useStoreActions((actions) => actions.notes);
-    const notes = useStoreState((state) => state.notes.items);
     const { playlistId, videoId } = useParams();
     const current = playlists[playlistId];
-    const [state, setState] = useState(notes[videoId] || 'Write here...');
+    const [draggable, setDraggable] = useState(false);
+    const [currentVideoId, setCurrentVideoId] = useState(videoId);
 
     if(!current) return (<NotFound />);
 
@@ -29,45 +29,41 @@ const PlayerPage = ({playlists}) => {
         prevVideoId = current.playListItems[index - 1].contentDetails.videoId;
         nextVideoId = current.playListItems[index + 1].contentDetails.videoId;
     }
-//
 
-// handler functions
-    const handleChange = (e) => {
-        setState(e.target.value);
+    
+
+    const handlePrevious = () => {
+        setCurrentVideoId(prevVideoId);
     }
 
-    const handleSave = () => {
-        notesAction.updateNote({videoId, note: state});
+    const handleNext = () => {
+        setCurrentVideoId(nextVideoId);
     }
-//
+
 
     return (
         <div style={{color: 'white', backgroundColor:'#333333'}}>
             <Container maxWidth={'lg'} sx={{py: 10}}>
                 <Container maxWidth={'lg'} sx={{alignContent: 'center'}}>
-                    {/* <YouTube videoId={videoId} opts={{height: '380px', width: '100%'}}/> */}
                     <iframe width={'100%'} height={'400px'} style={{border: '0px'}} src={`https://www.youtube.com/embed/${videoId}`} referrerPolicy='strict-origin-when-cross-origin'></iframe>
-                    {/* <iframe
-                      width="560"
-                      height="315"
-                      src={`https://www.youtube.com/embed/${videoId}`}
-                      title="YouTube video player"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      allowFullScreen
-                    ></iframe> */}
                     <Stack direction={'row'} justifyContent={'space-between'}>
-                        <Button variant='contained' color='error' to={`/player/${playlistId}/${prevVideoId}`} component={Link}>Previous</Button>
-                        <Button variant='contained' color='error' to={`/player/${playlistId}/${nextVideoId}`} component={Link}>Next</Button>
+                        <Button variant='contained' style={{backgroundColor: '#ff0000'}} to={`/player/${playlistId}/${prevVideoId}`} component={Link} onClick={handlePrevious}>Previous</Button>
+                        <Button variant='contained' style={{backgroundColor: '#ff0000'}} to={`/player/${playlistId}/${nextVideoId}`} component={Link} onClick={handleNext}>Next</Button>
                     </Stack>
                 </Container>
                 <Container spacing={2} sx={{my: 5}}>
-                    <Stack spacing={2} maxWidth={'100%'} justifyContent={'center'}>
+                    <Stack spacing={2} direction={"column"} justifyContent={'center'}>
                         <h2>Make Note</h2>
-                        <TextField id="note" fullWidth multiline rows={6} defaultValue={state} inputProps={{style: {color: 'white'}}} onChange={handleChange}/>
-                        <Button variant='contained' color='error' onClick={() => handleSave()}>Save</Button>
+                        
+                        <Draggable disabled={!draggable}>
+                            <div className='draggable-div'>
+                                <Button variant='contained' style={{backgroundColor: '#ff0000', width: '200px', fontSize: '12px'}} onClick={() => setDraggable(!draggable)}>{draggable ? 'Make Static':'Make Draggable'}</Button>
+                                <TextEditor videoId={currentVideoId} playlistId={playlistId}/>
+                            </div>
+                        </Draggable>
                     </Stack>
                     <Container>
-                        <Typography variant='h5' align='center' sx={{marginTop: '5%', marginBottom: '3%'}}>
+                        <Typography variant='h5' align='center' sx={{marginTop: '15%', marginBottom: '3%'}}>
                             <b>Videos</b>
                         </Typography>
                         <List sx={{maxHeight: '400px', maxWidth:'100%', overflow: 'auto'}}>
