@@ -258,7 +258,7 @@ export default function Home() {
                 zIndex: '-1'
               }}>
                 {/* <img src="/contact_trans.png" alt="login" style={{height: '50%', opacity: '50%'}}/> */}
-                <img src="/contact_trans.png" alt="login" style={{objectFit: 'cover', width: '80%', height: '80%'}}/>
+                <img src="/contact_trans.png" alt="login" style={{objectFit: 'cover', width: '50%', height: '50%'}}/>
               </div>
 
             </Grid>
