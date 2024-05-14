@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import Image from 'next/image';
+// import Image from 'next/image';
 import { Box, Grid, TextField, Input, InputLabel, Button, Divider } from '@mui/material';
 import PlaylistForm from '../playlist-form';
+import Image from 'next/image';
 // import { Input } from '@mui/icons-material';
 
 export default function Home() {
