@@ -46,7 +46,7 @@ const Navbar = () => {
               </Link>
             </Stack>
             {/* <Button variant='contained' style={{backgroundColor: '#ff0000'}} onClick={handleClickOpen}>Add Playlist</Button> */}
-            <Button variant='contained' style={{backgroundColor: '#ff0000', marginRight: '15px'}}>Login bhai</Button>
+            <Button variant='contained' style={{backgroundColor: '#ff0000', marginRight: '15px'}}>Login</Button>
             <Button variant='contained' style={{backgroundColor: '#ff0000'}}>Sign Up</Button>
             {/* <PlaylistForm open={open} handleClose={handleClose}/> */}
           </Toolbar>
