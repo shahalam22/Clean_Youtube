@@ -67,7 +67,7 @@ export default function Home() {
       }}>
         {/* <Grid> */}
           <Grid>
-            <h1 style={{fontSize: '3.3rem', marginBottom: '0px'}}>Features</h1>
+            <h1 style={{fontSize: '3.3rem', marginBottom: '0px'}}>Feat</h1>
             <p style={{fontSize: '1.0rem', marginBottom: '40px', marginTop: '0px'}}>Focus & Make Note on What Matters</p> 
           </Grid>
           <Grid container spacing={'2'}>
