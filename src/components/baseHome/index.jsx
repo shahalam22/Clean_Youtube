@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import Image from 'next/image';
+import React, { useState } from 'react'
 import { Box, Grid, TextField, Input, InputLabel, Button, Divider } from '@mui/material';
 import PlaylistForm from '../playlist-form';
 // import { Input } from '@mui/icons-material';
@@ -46,7 +45,7 @@ export default function Home() {
               padding: '30px',
             }}
           >
-            <Image src="/Cleantube_Home1.png" alt="youtube_illustration" style={{objectFit: 'cover', width: '80%', height: '80%'}}/>
+            <img src="../../../public/Cleantube_Home1.png" alt="youtube_illustration" style={{objectFit: 'cover', width: '80%', height: '80%'}}/>
           </Grid>
         </Grid>
 
@@ -67,7 +66,7 @@ export default function Home() {
       }}>
         {/* <Grid> */}
           <Grid>
-            <h1 style={{fontSize: '3.3rem', marginBottom: '0px'}}>Feat</h1>
+            <h1 style={{fontSize: '3.3rem', marginBottom: '0px'}}>Features</h1>
             <p style={{fontSize: '1.0rem', marginBottom: '40px', marginTop: '0px'}}>Focus & Make Note on What Matters</p> 
           </Grid>
           <Grid container spacing={'2'}>
