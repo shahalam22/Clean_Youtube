@@ -42,7 +42,7 @@ const Navbar = () => {
                 <Typography variant="body1" color={'white'}>
                   Boost your Concentration
                 </Typography> */}
-                <img src='../../../public/Black_BG.png' width={'150px'}></img>
+                <img src='/Black_BG.png' width={'150px'}></img>
               </Link>
             </Stack>
             {/* <Button variant='contained' style={{backgroundColor: '#ff0000'}} onClick={handleClickOpen}>Add Playlist</Button> */}
