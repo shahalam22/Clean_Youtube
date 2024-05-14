@@ -78,7 +78,7 @@ export default function Home() {
                 padding: '30px',
               }}
             >
-              <img src="/feature_trans.png" alt="youtube_illustration" style={{objectFit: 'cover', width: '80%', height: '80%'}}/>
+              <img src="/feature_trans.png" alt="feature trans" style={{objectFit: 'cover', width: '80%', height: '80%'}}/>
             </Grid>
             <Grid item xs={12} md={6} style={{marginBottom: '25px'}}>
               <Grid item xs={12} style={{padding: '30px'}}>
@@ -127,7 +127,7 @@ export default function Home() {
               padding: '30px',
             }}
           >
-            <img src="/howToUse_trans.png" alt="youtube_illustration" style={{objectFit: 'cover', width: '80%', height: '80%'}}/>
+            <img src="/howToUse_trans.png" alt="how to use trans" style={{objectFit: 'cover', width: '80%', height: '80%'}}/>
           </Grid>
           <Grid item xs={12} md={6} style={{marginBottom: '25px'}}>
             <Grid item xs={12} style={{padding: '30px'}}>
