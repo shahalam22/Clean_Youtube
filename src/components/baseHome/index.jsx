@@ -47,7 +47,7 @@ export default function Home() {
               padding: '30px',
             }}
           >
-            <Image src="/Cleantube_Home1.png" alt="youtube_illustration" style={{objectFit: 'cover', width: '80%', height: '80%'}}/>
+            <img src="/Cleantube_Home1.png" alt="youtube_illustration" style={{objectFit: 'cover', width: '80%', height: '80%'}}/>
           </Grid>
         </Grid>
 
